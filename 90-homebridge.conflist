@@ -1,0 +1,32 @@
+{
+  "cniVersion": "0.4.0",
+  "name": "homebridge",
+  "plugins": [
+      {
+         "type": "bridge",
+         "bridge": "br0",
+         "ipam": {
+            "type": "host-local",
+            "ranges": [
+                [
+                    {
+                        "subnet": "10.42.42.0/24",
+                        "rangeStart": "10.42.42.109",
+                        "rangeEnd": "10.42.42.109",
+                        "gateway": "10.42.42.1" 
+                    }
+                ]
+            ],
+            "routes": [
+                {"dst": "0.0.0.0/0"}
+            ]
+         }
+      },
+      {
+         "type": "tuning",
+         "capabilities": {
+            "mac": true
+         }
+      }
+  ]
+}
